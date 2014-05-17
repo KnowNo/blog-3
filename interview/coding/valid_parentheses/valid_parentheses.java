@@ -25,9 +25,9 @@ public class valid_parentheses {
         
         Stack<Character> st = new Stack<Character>();
         for(Character ch: input.toCharArray()) {
-            if(charMap.keySet().contains(ch)) {
+            if(charMap.containsKey(ch)) {
                 st.push(ch);
-            } else if(charMap.values().contains(ch)) {
+            } else if(charMap.containsValue(ch)) {
                 if (!st.empty() && ch.equals(charMap.get(st.peek()))) {
                     st.pop();
                 }
