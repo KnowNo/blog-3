@@ -1,34 +1,34 @@
-public class Solution {
+import java.util.HashMap;
+import java.util.Stack;
+
+public class valid_parentheses {
     public static void main(String[] args) {
-        assert is_valid_parentheses(''); // empty is valid
-        assert is_valid_parentheses('*');
-        assert is_valid_parentheses('()');
-        assert is_valid_parentheses('{}');
-        assert is_valid_parentheses('[]');
-        assert is_valid_parentheses('{()}');
-        assert is_valid_parentheses('([{}])');
-        
-        
-        
-        assert is_valid_parentheses('([)]');
+        assert is_valid_parentheses(""); // empty is valid
+        assert is_valid_parentheses("*");
+        assert is_valid_parentheses("()");
+        assert is_valid_parentheses("{}");
+        assert is_valid_parentheses("[]");
+        assert is_valid_parentheses("{()}");
+        assert is_valid_parentheses("([{}])");
+
+        assert !is_valid_parentheses("([)]");
     }
     
-    
+    // It is a short program, and every word is important for its correctness
     public static boolean is_valid_parentheses(final String input) {
-        assert input != null
-        
+        assert input != null;
+
         HashMap<Character, Character> charMap = new HashMap<Character ,Character>();
-        charMap['{'] = '}';
-        charMap['['] = ']';
-        charMap['('] = ')';
+        charMap.put('{', '}');
+        charMap.put('[', ']');
+        charMap.put('(', ')');
         
         Stack<Character> st = new Stack<Character>();
         for(Character ch: input.toCharArray()) {
-            if(charMap.keySet().contains(ch)) { // BUG: why this always returns false
-                println ch
+            if(charMap.keySet().contains(ch)) {
                 st.push(ch);
             } else if(charMap.values().contains(ch)) {
-                if (!st.empty() && ch.equals(st.peek())) {
+                if (!st.empty() && ch.equals(charMap.get(st.peek()))) {
                     st.pop();
                 }
             }
