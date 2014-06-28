@@ -26,3 +26,17 @@ class Choice(models.Model):
         return self.choice_text
     
 
+#
+# Everything below are just for experiment, not part of the django poll app
+# 
+class Person(models.Model):
+    SHIRT_SIZES = (
+        ('S', 'Small'),
+        ('M', 'Medium'),
+        ('L', 'Large')
+    )
+
+    name = models.CharField(max_length=60)
+    shirt_size = models.CharField(max_length=1, choices=SHIRT_SIZES)
+    
+
