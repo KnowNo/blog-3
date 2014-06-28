@@ -2,6 +2,8 @@ import argparse
 import os
 import time
 
+ignore_count = 0
+moved_count = 0
 def get_target_dir(file):
     subdir = time.strftime('%Y-%m', time.gmtime(os.path.getmtime(file))) # you should use getmtime, not getctime, as once copied, the create time will be updated
     return subdir
@@ -11,7 +13,15 @@ def move_to(src, target_dir):
     if not os.path.isdir(target_dir):
         os.mkdir(target_dir)
     dst = os.path.join(target_dir, os.path.basename(src))
-    os.rename(src, dst) # shutil.move is also an option
+    if os.path.isfile(dst):
+        global ignore_count
+        ignore_count = ignore_count + 1
+        print dst + " already exists."
+    else:
+        global moved_count
+        moved_count = moved_count + 1
+        os.rename(src, dst) # shutil.move is also an option
+
     
 if __name__ == '__main__':
     # process arguments
@@ -31,3 +41,7 @@ if __name__ == '__main__':
     for file in all_files:
         target_dir = get_target_dir(file)
         move_to(file, os.path.join(args.target, target_dir))
+
+    print "Summary:"
+    print "Files moved: %s" % (moved_count)
+    print "Files ignored (already in target): %s" % (ignore_count)

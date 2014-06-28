@@ -15,12 +15,14 @@ set PATH=%PATH%;D:\Tools\apache-ant-1.8.2\bin
 set PATH=%PATH%;C:\Program Files\Apache Software Foundation\Apache2.2\bin
 set PATH=%PATH%;C:\Program Files\MySQL\MySQL Server 5.6\bin
 set PATH=%PATH%;C:\Program Files\Graphviz2.38\bin
+set PATH=%PATh%;D:\Tools\ProcessExplorer
 
 REM Configure doskey (alias in linux)
 doskey premake=premake4 $*
 doskey sublime="C:\Program Files\Sublime Text 2\sublime_text.exe" $*
 doskey groovyConsole=start groovyConsole.bat $*
 doskey MySQLWorkBench="C:\Program Files\MySQL\MySQL Workbench CE 6.0.9\MySQLWorkbench.exe" $*
+doskey errlook="C:\Program Files\Microsoft Visual Studio 10.0\Common7\Tools\errlook.exe"
 
 REM Setup python startup scripts
 set PYTHONSTARTUP=D:\Source\GitHub\tools\src\startup.py
