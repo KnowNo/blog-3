@@ -16,12 +16,12 @@ set PATH=%PATH%;C:\Program Files\Apache Software Foundation\Apache2.2\bin
 set PATH=%PATH%;C:\Program Files\MySQL\MySQL Server 5.6\bin
 set PATH=%PATH%;C:\Program Files\Graphviz2.38\bin
 set PATH=%PATh%;D:\Tools\ProcessExplorer
+set PATH=%PATH%;D:\Tools\tools
 
 REM Configure doskey (alias in linux)
 doskey sublime="C:\Program Files\Sublime Text 2\sublime_text.exe" $*
 doskey groovyConsole=start groovyConsole.bat $*
 doskey MySQLWorkBench="C:\Program Files\MySQL\MySQL Workbench CE 6.0.9\MySQLWorkbench.exe" $*
-doskey errlook="C:\Program Files\Microsoft Visual Studio 10.0\Common7\Tools\errlook.exe"
 doskey premake="D:\Tools\premake-4.4-beta5-windows\premake4.exe" $*
 doskey msbuild="C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild" $*
 
