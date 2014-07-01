@@ -60,3 +60,39 @@ def vote(request, poll_id):
         # with POST data, This prevents data from bing posted twice
         # if the user hits the Back button
         return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))
+
+
+
+
+from django import forms
+
+class ContactForm(forms.Form):
+    subject = forms.CharField(max_length=100)
+    message = forms.CharField()
+    sender = forms.EmailField()
+    cc_myself = forms.BooleanField(required=False)
+
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            sender = form.cleaned_data['sender']
+            cc_myself = form.cleaned_data['cc_myself']
+
+            recipients = ['baiyanhuang@126.com']
+            if cc_myself:
+                recipients.append(sender)
+
+            from django.core.mail import send_mail
+            send_mail(subject, message, sender, recipients)
+
+            return HttpResponseRedirect('/thanks/')
+    else:
+        form = ContactForm()
+
+    return render(request, 'polls/contact.html', {'form': form})
+
