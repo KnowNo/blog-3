@@ -9,11 +9,11 @@ do
 		expr=${option:2} # ${parameter:offset:length} to get substring
 		echo $expr
 		eval $expr # --myoption won't work, we need an assignment
-		shift
+		shift # shift move away the leftmost parameter
 	fi	
 done
 
 echo "=>The captured variables for options: "
-set | tail -3
+set | tail -3 # set displays all environment variable and local variables (with locals at last)
 
 echo "=>the positional arguments are: " "$@"
