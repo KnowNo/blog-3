@@ -77,6 +77,7 @@ class ContactForm(forms.Form):
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
+        # how to log in django?
         if form.is_valid():
             subject = form.cleaned_data['subject']
             message = form.cleaned_data['message']
@@ -90,7 +91,8 @@ def contact(request):
             from django.core.mail import send_mail
             send_mail(subject, message, sender, recipients)
 
-            return HttpResponseRedirect('/thanks/')
+            #return HttpResponseRedirect('/thanks/')
+            return HttpResponse('Thanks')
     else:
         form = ContactForm()
 
