@@ -17,6 +17,7 @@ set PATH=%PATH%;C:\Program Files\MySQL\MySQL Server 5.6\bin
 set PATH=%PATH%;C:\Program Files\Graphviz2.38\bin
 set PATH=%PATh%;D:\Tools\ProcessExplorer
 set PATH=%PATH%;D:\Tools\tools
+set PATH=%PATH%;C:\Program Files\nodejs
 
 REM Configure doskey (alias in linux)
 doskey sublime="C:\Program Files\Sublime Text 2\sublime_text.exe" $*
