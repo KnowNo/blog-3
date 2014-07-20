@@ -18,6 +18,7 @@ set PATH=%PATH%;C:\Program Files\Graphviz2.38\bin
 set PATH=%PATh%;D:\Tools\ProcessExplorer
 set PATH=%PATH%;D:\Tools\tools
 set PATH=%PATH%;C:\Program Files\nodejs
+set PATH=%PATH%;C:\Program Files\scala\bin
 
 REM Configure doskey (alias in linux)
 doskey sublime="C:\Program Files\Sublime Text 2\sublime_text.exe" $*
@@ -28,6 +29,8 @@ doskey msbuild="C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild" $*
 
 REM Setup python startup scripts
 set PYTHONSTARTUP=D:\Source\GitHub\tools\src\startup.py
+
+set JAVA_HOME=C:\Program Files\Java\jdk1.7.0_45
 
 REM Start in D: directory
 D:
