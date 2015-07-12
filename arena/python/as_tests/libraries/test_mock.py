@@ -43,11 +43,12 @@ class TestMock(unittest.TestCase):
 
         self.assertEqual("I am magic", str(add))
 
-    @patch('libraries.test_mock.add') # TODO
-    @patch('libraries.test_mock.sub')
+    @patch('test_mock.add') # TODO
+    @patch('test_mock.sub')
     def test_patch(self, mock_sub, mock_add):
         mock_sub.return_value = 0
         mock_add.return_value = 0
+
 
         self.assertEqual(0, sub(1, 9))
 
@@ -63,5 +64,27 @@ class TestMock(unittest.TestCase):
 
         with self.assertRaises(TypeError):
             add(1, 2, 3)
+
+    @patch('test_mock.add') # TODO
+    def test_side_effect_with_closure(self, mock_add):
+        # use an array rather than a variable
+        # as in python if you assign to a variable it default to current scope
+        local_val = [0]
+        def mock_add_side_effect(a, b):
+            # http://stackoverflow.com/questions/4851463/python-closure-write-to-variable-in-parent-scope
+            local_val[0] = 100 
+
+        mock_add.side_effect = mock_add_side_effect
+
+        add(1,3)
+
+        self.assertEqual(local_val[0], 100)
+
+
+
+
+
+
+
 
 
