@@ -14,4 +14,4 @@
    * src - dest mapping
 * `grunt --help` to list all tasks of the project
 * build bootstrap: http://getbootstrap.com/getting-started/
-* grunt plugins use a lot of js/css/docs toolings and testing frameworks ,which is very useful for web development
+* grunt plugins use a lot of js/css/docs/sass/less toolings and testing frameworks ,which is very useful for web development
