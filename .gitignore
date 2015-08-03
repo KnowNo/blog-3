@@ -1,2 +1,3 @@
-*.pyc
-*.class
+**/*.pyc
+**/*.class
+**/.README.md.html
